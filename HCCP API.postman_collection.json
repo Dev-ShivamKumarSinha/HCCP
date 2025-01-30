@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "46d41f49-111d-4137-8aa8-2f4f98590100",
+		"name": "HCCP API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16689106"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"newuser\",\n    \"password\": \"securepassword\",\n    \"email\": \"newuser@example.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"adminpassword\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Article",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MTYzNTI0LCJpYXQiOjE3MzgxNTk5MjQsImp0aSI6ImJmZDFmMWZmMDk5NDRlODM5NTlmZGJmNDdmOTcwOTk5IiwidXNlcl9pZCI6Mn0.jEdd2hwkzDGMA88Twzzawyvjmath_Q7iXgb5GQGqJOM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Sample Article\",\n    \"body\": \"This is a sample article.\",\n    \"tags\": \"example, test\",\n    \"collaborators\":[]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch article by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MTc4MTU5LCJpYXQiOjE3MzgxNzQ1NTksImp0aSI6IjhmZWVjYzUzYWM4YTRlZTlhYzQwNTA0ZjEzYTk3ZWQ5IiwidXNlcl9pZCI6Mn0.GfGXdpHQD5i3vrAiw851tYHK_LmpaRKWivTYMQab-mo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles/<article_id>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles",
+						"<article_id>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update existing article",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MTc4MTU5LCJpYXQiOjE3MzgxNzQ1NTksImp0aSI6IjhmZWVjYzUzYWM4YTRlZTlhYzQwNTA0ZjEzYTk3ZWQ5IiwidXNlcl9pZCI6Mn0.GfGXdpHQD5i3vrAiw851tYHK_LmpaRKWivTYMQab-mo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Updated Title\",\n    \"body\": \"This is the updated body of the article.\",\n    \"tags\": \"updated, example\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles/<article_id>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles",
+						"<article_id>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Soft delete an article",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MTUxODcwLCJpYXQiOjE3MzgxNDgyNzAsImp0aSI6ImVjOWQzMGQ5MzkyYjQ4NGM4MmQ1OTQxMDcwNTQxYzFiIiwidXNlcl9pZCI6Mn0._Rqkt1N8MgMVQwMbwQbKL2RLpf4u-_CvDTpj9fcihew",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles/<article_id>",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles",
+						"<article_id>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add collaborator to an article",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MDkyMjgzLCJpYXQiOjE3MzgwODg2ODMsImp0aSI6ImZkMTFkZjU1ZTEwMTQwYWViYTA1NjRjZGNkNzBmNDA0IiwidXNlcl9pZCI6Mn0.k3FWVQUXmTiqsBGAPls8VCcH2pmj3uDsXf4GmDdZYb4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"collaborator\": \"testuser\",\n    \"action\": \"add\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles/<article_id>/collaborators",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles",
+						"<article_id>",
+						"collaborators"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove collaborator from an article",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MDkyMjgzLCJpYXQiOjE3MzgwODg2ODMsImp0aSI6ImZkMTFkZjU1ZTEwMTQwYWViYTA1NjRjZGNkNzBmNDA0IiwidXNlcl9pZCI6Mn0.k3FWVQUXmTiqsBGAPls8VCcH2pmj3uDsXf4GmDdZYb4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"collaborator\": \"testuser\",\n    \"action\": \"remove\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles/<article_id>/collaborators",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles",
+						"<article_id>",
+						"collaborators"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rollback a soft deleted article",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MTUxODcwLCJpYXQiOjE3MzgxNDgyNzAsImp0aSI6ImVjOWQzMGQ5MzkyYjQ4NGM4MmQ1OTQxMDcwNTQxYzFiIiwidXNlcl9pZCI6Mn0._Rqkt1N8MgMVQwMbwQbKL2RLpf4u-_CvDTpj9fcihew",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles/<article_id>/rollback",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles",
+						"<article_id>",
+						"rollback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get list of deleted articles",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MTU1MDMwLCJpYXQiOjE3MzgxNTE0MzAsImp0aSI6IjI2MDA2NzEwZWUxNzQzZGQ4MGVmYTUxNjg3ZTUzNjFlIiwidXNlcl9pZCI6NH0.p6Qn0DqV4H6Wn27iQ1G369e_Lo7ILPTf2QHFcHp77_k",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles/deleted",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles",
+						"deleted"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get history of an article (only for admins)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MTgyNDU1LCJpYXQiOjE3MzgxNzg4NTUsImp0aSI6IjdkZWM4ZGZjMzk5MjRhOWU4YzA0OTYwYWRlM2VlMmYzIiwidXNlcl9pZCI6MX0.PLw76vtf9jp8cZdYh18Yq4xUuwxvnVgRzqtODEeYlhw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/articles/<article_id>/history",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"articles",
+						"<article_id>",
+						"history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user edits (only for admins)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MTU1MDMwLCJpYXQiOjE3MzgxNTE0MzAsImp0aSI6IjI2MDA2NzEwZWUxNzQzZGQ4MGVmYTUxNjg3ZTUzNjFlIiwidXNlcl9pZCI6NH0.p6Qn0DqV4H6Wn27iQ1G369e_Lo7ILPTf2QHFcHp77_k",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/analytics/user-edits",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analytics",
+						"user-edits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user activities (only for admins) Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM4MTU1MDMwLCJpYXQiOjE3MzgxNTE0MzAsImp0aSI6IjI2MDA2NzEwZWUxNzQzZGQ4MGVmYTUxNjg3ZTUzNjFlIiwidXNlcl9pZCI6NH0.p6Qn0DqV4H6Wn27iQ1G369e_Lo7ILPTf2QHFcHp77_k",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/analytics/user-activity",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analytics",
+						"user-activity"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
